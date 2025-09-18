@@ -5,6 +5,8 @@ output: html_document
 
 ```{r}
 library(tidyverse)
+library(readxl)
+library(haven)
 ```
 
 Let's import a dataset.
@@ -44,3 +46,34 @@ pups_df = read_csv(
   
 pups_df = janitor::clean_names(pups_df)
 ```
+
+```{r}
+mlb_df = 
+  read_excel("data/mlb11.xlsx",
+             sheet = NULL)
+```
+
+Import LotR
+
+```{r}
+fortr_df = 
+  read_excel("data/LotR_Words.xlsx",
+             range = "B3:D6")
+```
+
+## SAS??
+
+```{r}
+pulse_df = read_sas("data/public_pulse_data.sas7bdat")|>
+  janitor::clean_names()
+```
+
+## select
+
+```{r}
+select(litters_df, group, litter_number, gd0_weight)
+```
+
+
+
+
